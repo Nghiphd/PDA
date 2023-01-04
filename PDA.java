@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import java.util.InputMismatchException;
+IllegalArgumentException
 
 /**
  * Permissible Dating Age program
@@ -11,6 +12,7 @@ public class PDA
 {
     Scanner scanner = new Scanner(System.in);
     int age;
+    int LOWER_BOUND = 14;
     /**
      * Constructor for objects of class PDA
      */
@@ -29,14 +31,13 @@ public class PDA
             try {
                 age = scanner.nextInt();
                 System.out.println(age);
-            } catch (InputMismatchException error) {
+            } catch (BadStringOperationException error) {
                 scanner.next();
-                scanner.nextInt()<
-                
-                System.out.println("Please enter an integer");
+                if(age < 0){}
+                System.out.println("Please enter a valid integer");
             }
-        }
 
+        }
     }
 
     /**
