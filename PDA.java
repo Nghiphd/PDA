@@ -12,6 +12,7 @@ public class PDA
     Scanner scanner = new Scanner(System.in);
     int age;
     int LOWER_BOUND = 14;
+    int ZERO = 0;
     /**
      * Constructor for objects of class PDA
      */
@@ -31,18 +32,28 @@ public class PDA
             try {
                 age = scanner.nextInt();
                 System.out.println(age);
-                try {
-                    if(age < LOWER_BOUND && age > 0) {
-                        throw new IllegalArgumentException("Too young");
-                    }
-                } catch (IllegalArgumentException a) {
-                    System.out.println(age+" is too young!!");
-                }
             } catch (InputMismatchException error) {
                 scanner.next();
                 System.out.println("Please enter a valid integar");
             } 
-
+            
+            try {
+                if(age < LOWER_BOUND && age >= ZERO) {
+                    throw new IllegalArgumentException("Too young");
+                } else {
+                    System.out.println("Computations go here");
+                }
+            } catch (IllegalArgumentException a) {
+                System.out.println(age+" is too young!!");
+            }
+            
+            try {
+                if(age <= ZERO) {
+                    throw new IllegalArgumentException("Invalid");
+                }
+            } catch (IllegalArgumentException a) {
+                System.out.println("Invalid Integar");
+            }
         }
     }
 
