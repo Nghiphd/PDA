@@ -38,23 +38,34 @@ public class PDA
             } 
             
             try {
-                if(age < LOWER_BOUND && age >= ZERO) {
-                    throw new IllegalArgumentException("Too young");
-                } else {
-                    System.out.println("Computations go here");
-                }
-            } catch (IllegalArgumentException a) {
-                System.out.println(age+" is too young!!");
-            }
-            
-            try {
                 if(age <= ZERO) {
                     throw new IllegalArgumentException("Invalid");
                 }
             } catch (IllegalArgumentException a) {
                 System.out.println("Invalid Integar");
             }
+            
+            try {
+                if(age < LOWER_BOUND && age >= ZERO) {
+                    throw new IllegalArgumentException("Too young");
+                } else {
+                    System.out.println("Youngest:" + getYoungerAge(age));
+                    System.out.println ("Oldest:" + getOlderAge(age));
+                }
+            } catch (IllegalArgumentException a) {
+                System.out.println(age+" is too young!!");
+            }
         }
+    }
+    
+    public int getYoungerAge(int age) {
+        double j = Math.ceil((float) age/2) + 7;
+        age = (int) j;
+        return (age);
+    }
+    
+    public int getOlderAge(int age) {
+        return (age - 7)*2;
     }
 
     /**
