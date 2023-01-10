@@ -28,7 +28,7 @@ public class PDA
      */
     public void runEventLoop() {
         while (shouldContinue) {
-
+            
             System.out.println("How old are you?");
             System.out.println("Input 0 to quit");
 
@@ -37,11 +37,12 @@ public class PDA
                 System.out.println(age);
             } catch (InputMismatchException error) {
                 scanner.next();
-                System.out.println("Please enter a valid integar");
+                System.out.println("Please enter an integar");
             } 
             
             if(age == 0) {
                 shouldContinue = false;
+                scanner.nextInt();
             }
             
             try {
