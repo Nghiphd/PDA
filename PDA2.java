@@ -26,8 +26,7 @@ public class PDA2
      */
     public void runEventLoop() {
         while(true) {
-            age = scanner.nextInt();
-            System.out.println(age − 1);
+            
         }
     }
 

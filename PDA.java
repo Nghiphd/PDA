@@ -10,7 +10,7 @@ import java.lang.IllegalArgumentException;
 public class PDA
 {
     Scanner scanner = new Scanner(System.in);
-    int age;
+    int age = -1;
     int LOWER_BOUND = 14;
     int ZERO = 0;
     boolean shouldContinue = true;
@@ -42,7 +42,6 @@ public class PDA
             
             if(age == 0) {
                 shouldContinue = false;
-                scanner.nextInt();
             }
             
             try {
