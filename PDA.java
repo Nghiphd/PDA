@@ -10,7 +10,7 @@ import java.lang.IllegalArgumentException;
 public class PDA
 {
     Scanner scanner = new Scanner(System.in);
-    int age = -1;
+    int age;
     int LOWER_BOUND = 14;
     int ZERO = 0;
     boolean shouldContinue = true;
@@ -29,8 +29,8 @@ public class PDA
     public void runEventLoop() {
         while (shouldContinue) {
             
-            System.out.println("How old are you?");
-            System.out.println("Input 0 to quit");
+            System.out.println("\n-How old are you?");
+            System.out.println("--Input 0 to quit\n");
 
             try {
                 age = scanner.nextInt();
@@ -38,29 +38,31 @@ public class PDA
             } catch (InputMismatchException error) {
                 scanner.next();
                 System.out.println("Please enter an integar");
+                continue;
             } 
             
-            if(age == 0) {
-                shouldContinue = false;
-            }
             
             try {
                 if(age < ZERO) {
-                    throw new IllegalArgumentException("Invalid");
+                    throw new IllegalArgumentException("Please enter a positive integar");
                 }
             } catch (IllegalArgumentException a) {
-                System.out.println("Invalid Integar");
+                System.out.println(a.getMessage());
             }
             
             try {
                 if(age < LOWER_BOUND && age > ZERO) {
-                    throw new IllegalArgumentException("Too young");
+                    throw new IllegalArgumentException(age+" is too young!!");
                 } else if (age >= LOWER_BOUND) {
                     System.out.println("Youngest:" + getYoungerAge(age));
                     System.out.println ("Oldest:" + getOlderAge(age));
                 }
-            } catch (IllegalArgumentException a) {
-                System.out.println(age+" is too young!!");
+            } catch (IllegalArgumentException b) {
+                System.out.println(b.getMessage());
+            }
+            
+            if(age == 0) {
+                shouldContinue = false;
             }
         }
     }
